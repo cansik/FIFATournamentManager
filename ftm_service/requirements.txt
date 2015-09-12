@@ -1,0 +1,5 @@
+flask
+gevent
+connexion
+pg4nosql
+iso8601

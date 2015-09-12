@@ -1,0 +1,78 @@
+swagger: '2.0'
+info:
+  description: Data service for the FIFA Tournament Manager.
+  version: 1.0.0
+  title: FIFA Tournament Manager
+  contact: { name: 'Veasy' }
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: MANAGER
+    description: All functions related to the manager.
+paths:
+  /{tournament_id}/player/:
+    get:
+      tags:
+        - MANAGER
+      description: Returns a list of players.
+      operationId: routes.player.list
+      responses:
+        200:
+          description: OK
+          
+    post:
+      tags:
+        - MANAGER
+      operationId: routes.player.create
+      parameters:
+        - name: property_data
+          in: body
+          description: property_data
+          required: true
+          schema:
+            type: object
+      responses:
+        200:
+          description: OK
+
+
+  /{tournament_id}/player/{object_id}/:
+    get:
+      tags:
+        - MANAGER
+      description: Returns one player.
+      operationId: routes.player.read
+      parameters:
+        - $ref: "#/parameters/object_id"
+      responses:
+        200:
+          description: OK
+          
+    delete:
+      tags:
+        - MANAGER
+      description: Deletes one player.
+      operationId: routes.player.delete
+      parameters:
+        - $ref: "#/parameters/object_id"
+      responses:
+        200:
+          description: OK
+
+parameters:
+  # In Path Parameter
+  tournament_id:
+    name: tournament_id
+    in: path
+    description: Id of the tournament
+    required: true
+    type: string
+  
+  object_id:
+    name: object_id
+    in: path
+    description: Id of the manipulating object
+    required: true
+    type: string

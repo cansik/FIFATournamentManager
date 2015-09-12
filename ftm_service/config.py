@@ -1,0 +1,6 @@
+POSTGRES_HOST = '192.168.99.100'
+POSTGRES_PORT = 5432
+POSTGRES_USER = 'postgres'
+POSTGRES_PASSWORD = None
+
+FTM_DATABASE = 'fifa_tournament_manager'
